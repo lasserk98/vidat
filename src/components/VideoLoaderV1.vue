@@ -89,9 +89,14 @@ const handleSeeked = (event) => {
       }
       ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height)
       // save to cachedFrames
-      canvas.toBlob((blob) => {
-        annotationStore.cachedFrameList[currentIndex] = blob
-      }, 'image/jpeg')
+      const quality = Math.min(Math.max(preferenceStore.previewQuality || 0.7, 0.1), 0.95)
+      canvas.toBlob(
+        (blob) => {
+          annotationStore.cacheFrame(currentIndex, blob)
+        },
+        'image/jpeg',
+        quality
+      )
     }
     // trigger next frame
     if (!annotationStore.cachedFrameList[annotationStore.leftCurrentFrame]) {

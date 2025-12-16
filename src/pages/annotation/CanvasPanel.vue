@@ -172,11 +172,21 @@ onMounted(() => {
   const ctxBMR = background.value.getContext('bitmaprenderer')
   watch(
     () => annotationStore.cachedFrameList[annotationStore[props.position + 'CurrentFrame']],
-    (frame) => {
+    async (frame) => {
       if (frame)
         createImageBitmap(frame).then((image) => {
           ctxBMR.transferFromImageBitmap(image)
         })
+      else {
+        // Attempt to restore frame from disk cache when evicted
+        await annotationStore.ensureFrameLoaded(annotationStore[props.position + 'CurrentFrame'])
+        const restored = annotationStore.cachedFrameList[annotationStore[props.position + 'CurrentFrame']]
+        if (restored) {
+          createImageBitmap(restored).then((image) => {
+            ctxBMR.transferFromImageBitmap(image)
+          })
+        }
+      }
     },
     {
       immediate: true

@@ -65,7 +65,8 @@ onmessage = async (event) => {
           const _currentFrameIndex = currentFrameIndex
           if (frameIndexList.includes(_currentFrameIndex)) {
             ctx.drawImage(frame, 0, 0)
-            offscreen.convertToBlob({ type: 'image/jpeg' }).then((blob) => {
+            const quality = (self && self.previewQuality) || 0.7
+            offscreen.convertToBlob({ type: 'image/jpeg', quality }).then((blob) => {
               postMessage({
                 frame: blob,
                 frameIndex: frameIndexList.indexOf(_currentFrameIndex)

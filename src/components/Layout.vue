@@ -65,6 +65,18 @@
             Caching video frames. VideoLoader: {{ useV2 ? 'V2' : 'V1' }}.
           </q-tooltip>
         </q-circular-progress>
+        <q-icon
+          v-if="memoryStatusIndicator.show"
+          :name="memoryStatusIndicator.icon"
+          :color="memoryStatusIndicator.color"
+          class="q-mx-sm"
+          size="sm"
+        >
+          <q-tooltip>
+            Memory: {{ memoryUsagePercent }}%<br>
+            Status: {{ annotationStore.memoryStatus }}
+          </q-tooltip>
+        </q-icon>
         <q-btn
           :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
           flat
@@ -105,7 +117,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 import VideoLoaderV1 from '~/components/VideoLoaderV1.vue'
 import VideoLoaderV2 from '~/components/VideoLoaderV2.vue'
@@ -121,6 +133,30 @@ let { drawer } = storeToRefs(mainStore)
 const annotationStore = useAnnotationStore()
 const configurationStore = useConfigurationStore()
 const preferenceStore = usePreferenceStore()
+const memoryUsagePercent = ref(0)
+
+onMounted(() => {
+  const updateMemoryDisplay = () => {
+    if (performance.memory) {
+      memoryUsagePercent.value = Math.round(
+        (performance.memory.usedJSHeapSize / performance.memory.jsHeapSizeLimit) * 100
+      )
+    }
+  }
+  const interval = setInterval(updateMemoryDisplay, 1000)
+  updateMemoryDisplay()
+  return () => clearInterval(interval)
+})
+
+const memoryStatusIndicator = computed(() => {
+  const status = annotationStore.memoryStatus
+  if (status === 'critical') {
+    return { show: true, icon: 'warning', color: 'negative' }
+  } else if (status === 'warning') {
+    return { show: true, icon: 'priority_high', color: 'warning' }
+  }
+  return { show: false, icon: 'check_circle', color: 'positive' }
+})
 
 const useV2 = computed(() => {
   let ret

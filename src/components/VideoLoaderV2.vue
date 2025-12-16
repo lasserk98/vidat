@@ -1,7 +1,7 @@
 <template></template>
 
 <script setup>
-import { onMounted, watch } from 'vue'
+import { onBeforeUnmount, onMounted, watch } from 'vue'
 
 import utils from '~/libs/utils.js'
 import { useAnnotationStore } from '~/store/annotation.js'
@@ -11,18 +11,23 @@ import VideoProcessWorker from '~/worker/video-process-worker.js?worker'
 const annotationStore = useAnnotationStore()
 const preferenceStore = usePreferenceStore()
 let worker
+let stopWatch
 onMounted(() => {
-  watch(
+  stopWatch = watch(
     () => annotationStore.video.src,
-    (newValue) => {
+    (newValue, oldValue) => {
       if (worker) {
         worker.terminate()
       }
+      if (oldValue && oldValue.startsWith('blob:')) {
+        URL.revokeObjectURL(oldValue)
+      }
       if (newValue) {
+        annotationStore.cleanupVideoMemory({ releaseVideoSrc: false })
         worker = new VideoProcessWorker()
         // Parse the src into a ful URL (the worker does not know the current web root)
         const srcURL = new URL(newValue, window.location.href).href
-        worker.postMessage({ src: srcURL, defaultFps: preferenceStore.defaultFps })
+        worker.postMessage({ src: srcURL, defaultFps: preferenceStore.defaultFps, previewQuality: preferenceStore.previewQuality })
         annotationStore.cachedFrameList = []
         annotationStore.isCaching = true
         worker.onmessage = (event) => {
@@ -42,7 +47,7 @@ onMounted(() => {
             }
             utils.notify('Video loaded successfully!', 'positive')
           } else if (event.data.frame) {
-            annotationStore.cachedFrameList[event.data.frameIndex] = event.data.frame
+            annotationStore.cacheFrame(event.data.frameIndex, event.data.frame)
           } else if (event.data.done) {
             annotationStore.isCaching = false
           } else if (event.data.error) {
@@ -65,5 +70,15 @@ onMounted(() => {
       immediate: true
     }
   )
+})
+
+onBeforeUnmount(() => {
+  if (stopWatch) {
+    stopWatch()
+  }
+  if (worker) {
+    worker.terminate()
+    worker = null
+  }
 })
 </script>
