@@ -9,6 +9,7 @@ export const useVideo = () => {
     handleOpen: () => {
       if (annotationStore.hasVideo) {
         utils.confirm('Are you sure to open a new video? You will LOSE all data!').onOk(() => {
+          annotationStore.cachedFrameList = []
           annotationStore.reset()
           utils.importVideo().then(({ type, videoSrc }) => {
             mainStore.videoFormat = type
@@ -26,6 +27,7 @@ export const useVideo = () => {
     },
     handleClose: () => {
       utils.confirm('Are you sure to close? You will LOSE all data!').onOk(() => {
+        annotationStore.cachedFrameList = []
         annotationStore.reset()
         mainStore.drawer = false
         mainStore.videoFormat = null

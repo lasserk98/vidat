@@ -1,7 +1,7 @@
 <template></template>
 
 <script setup>
-import { onMounted, watch } from 'vue'
+import { onMounted, onUnmounted, watch } from 'vue'
 
 import utils from '~/libs/utils.js'
 import { useAnnotationStore } from '~/store/annotation.js'
@@ -19,12 +19,17 @@ onMounted(() => {
         worker.terminate()
       }
       if (newValue) {
+        // Clear previous video data before loading new video
+        annotationStore.cachedFrameList = []
+        annotationStore.keyframeList = []
+        annotationStore.priorityQueue = []
+        annotationStore.backendQueue = []
+        annotationStore.isCaching = true
+
         worker = new VideoProcessWorker()
         // Parse the src into a ful URL (the worker does not know the current web root)
         const srcURL = new URL(newValue, window.location.href).href
         worker.postMessage({ src: srcURL, defaultFps: preferenceStore.defaultFps })
-        annotationStore.cachedFrameList = []
-        annotationStore.isCaching = true
         worker.onmessage = (event) => {
           if (event.data.videoTrackInfo) {
             const videoTrackInfo = event.data.videoTrackInfo
@@ -65,5 +70,10 @@ onMounted(() => {
       immediate: true
     }
   )
+})
+onUnmounted(() => {
+  if (worker) {
+    worker.terminate()
+  }
 })
 </script>
