@@ -108,6 +108,8 @@ export const useAnnotationStore = defineStore('annotation', () => {
       if (state.video.src && state.video.src.startsWith('blob:')) {
         URL.revokeObjectURL(state.video.src)
       }
+      // Also clear cached frames to free memory
+      state.cachedFrameList = []
       Object.keys(state).map((key) => (state[key] = annotation[key]))
     },
     exportAnnotation: () => {
