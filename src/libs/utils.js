@@ -133,6 +133,102 @@ export default {
     })
   },
   /**
+   * Import a video file and process it
+   * @returns {Promise}
+   */
+  importVideoAndProcess: () => {
+    return new Promise(function (resolve, reject) {
+      const dialog = document.createElement('input')
+      dialog.type = 'file'
+      dialog.accept = 'video/*'
+      dialog.onchange = (e) => {
+        const file = e.target.files[0]
+        const formData = new FormData()
+        formData.append('video', file)
+
+        const notification = Notify.create({
+          message: 'Uploading and processing video... Please wait.',
+          color: 'info',
+          timeout: 0,
+          caption: 'This may take a while depending on file size.'
+        })
+
+        // Assuming backend is running on localhost:3000
+        const backendUrl = 'http://localhost:3000'
+
+        fetch(`${backendUrl}/preprocess`, {
+          method: 'POST',
+          body: formData
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error(res.statusText)
+            return res.json()
+          })
+          .then((data) => {
+            notification() // Dismiss notification
+            Notify.create({ message: 'Processing complete! Downloading files...', color: 'positive' })
+            
+            // Helper to download a file from URL
+            const downloadFile = (url, filename) => {
+               const link = document.createElement('a')
+               link.href = url
+               link.download = filename
+               document.body.appendChild(link)
+               link.click()
+               document.body.removeChild(link)
+            }
+
+            // Ask user which videostream (left/right) to open in Vidat
+            Dialog.create({
+              title: 'Select Stream',
+              message: 'Processing complete. Files will be downloaded.\n\nWhich stream do you want to OPEN in Vidat now?',
+              options: {
+                type: 'radio',
+                model: 'left',
+                items: [
+                  { label: 'Left Stream', value: 'left' },
+                  { label: 'Right Stream', value: 'right' }
+                ]
+              },
+              cancel: true,
+              persistent: true
+            }).onOk((dataOption) => {
+              // Trigger downloads of both files
+              const leftDownloadUrl = `${backendUrl}${data.left.downloadUrl}`
+              const rightDownloadUrl = `${backendUrl}${data.right.downloadUrl}`
+              
+              // We download both so user has them locally
+              // Using the new download endpoint ensures they are downloaded as attachments
+              // rather than opened in the browser/player
+              downloadFile(leftDownloadUrl, data.left.name)
+              // Small delay to ensure browser handles both downloads
+              setTimeout(() => downloadFile(rightDownloadUrl, data.right.name), 1000)
+
+              // Load the selected stream from the backend URL (Blob/Stream)
+              const selectedUrl = dataOption === 'left' ? `${backendUrl}${data.left.url}` : `${backendUrl}${data.right.url}`
+              
+              // We can fetch the blob to make it behave like a local file (better seeking)
+              fetch(selectedUrl)
+                .then(response => response.blob())
+                .then(blob => {
+                   const blobUrl = URL.createObjectURL(blob)
+                   resolve({
+                      type: 'mp4',
+                      videoSrc: blobUrl
+                   })
+                })
+            })
+          })
+          .catch((err) => {
+            notification() // Dismiss notification
+            Notify.create({ message: `Error: ${err.message}`, color: 'negative' })
+            reject(err)
+          })
+      }
+      dialog.click()
+    })
+  },
+  /**
    * Convert time to index
    * @param time
    * @returns {number}

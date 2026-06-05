@@ -58,7 +58,7 @@ export const useAnnotationStore = defineStore('annotation', () => {
   const preferenceStore = usePreferenceStore()
   const mainStore = useMainStore()
   let defaultAnnotation = deepClone(DEFAULT_ANNOTATION)
-  const state = reactive(DEFAULT_ANNOTATION)
+  const state = reactive(deepClone(DEFAULT_ANNOTATION))
 
   const getMemoryUsagePercent = () => {
     if (performance.memory) {
@@ -233,6 +233,11 @@ export const useAnnotationStore = defineStore('annotation', () => {
       annotation.zoom = state.zoom
       annotation.skeletonTypeId = state.skeletonTypeId
       annotation.isSaved = true
+      if (state.video.src && state.video.src.startsWith('blob:')) {
+        URL.revokeObjectURL(state.video.src)
+      }
+      // Also clear cached frames to free memory
+      state.cachedFrameList = []
       Object.keys(state).map((key) => (state[key] = annotation[key]))
     },
     exportAnnotation: () => {

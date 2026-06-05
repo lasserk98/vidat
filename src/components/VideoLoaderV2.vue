@@ -24,12 +24,17 @@ onMounted(() => {
       }
       if (newValue) {
         annotationStore.cleanupVideoMemory({ releaseVideoSrc: false })
+        // Clear previous video data before loading new video
+        annotationStore.cachedFrameList = []
+        annotationStore.keyframeList = []
+        annotationStore.priorityQueue = []
+        annotationStore.backendQueue = []
+        annotationStore.isCaching = true
+
         worker = new VideoProcessWorker()
         // Parse the src into a ful URL (the worker does not know the current web root)
         const srcURL = new URL(newValue, window.location.href).href
         worker.postMessage({ src: srcURL, defaultFps: preferenceStore.defaultFps, previewQuality: preferenceStore.previewQuality })
-        annotationStore.cachedFrameList = []
-        annotationStore.isCaching = true
         worker.onmessage = (event) => {
           if (event.data.videoTrackInfo) {
             const videoTrackInfo = event.data.videoTrackInfo
@@ -71,7 +76,6 @@ onMounted(() => {
     }
   )
 })
-
 onBeforeUnmount(() => {
   if (stopWatch) {
     stopWatch()

@@ -25,6 +25,13 @@ import { usePreferenceStore } from '~/store/preference.js'
 const annotationStore = useAnnotationStore()
 const preferenceStore = usePreferenceStore()
 const handleLoadeddata = (event) => {
+  // Clear previous canvas resources
+  if (canvas) {
+    canvas.width = 0
+    canvas.height = 0
+    canvas = null
+    ctx = null
+  }
   utils.notify('Video loaded successfully!', 'positive')
   if (!annotationStore.video.duration) annotationStore.video.duration = event.target.duration
   if (!annotationStore.video.width) annotationStore.video.width = event.target.videoWidth

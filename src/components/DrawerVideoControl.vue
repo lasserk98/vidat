@@ -38,6 +38,14 @@
         ></q-btn>
         <q-btn
           outline
+          icon="movie_filter"
+          @click="handleOpenProcessed"
+          label="process"
+        >
+          <q-tooltip>Import & Process (Deinterlace/Split)</q-tooltip>
+        </q-btn>
+        <q-btn
+          outline
           icon="close"
           @click="handleClose"
           v-if="annotationStore.hasVideo"
@@ -57,5 +65,5 @@ import { useAnnotationStore } from '~/store/annotation.js'
 
 const annotationStore = useAnnotationStore()
 const { video } = storeToRefs(annotationStore)
-const { handleOpen, handleClose } = useVideo()
+const { handleOpen, handleOpenProcessed, handleClose } = useVideo()
 </script>
