@@ -10,6 +10,8 @@ _An in-browser video annotation tool developed by [ANU CVML](https://github.com/
 [![CD Status](https://github.com/anucvml/vidat/actions/workflows/cd.yaml/badge.svg)](https://github.com/anucvml/vidat/actions/workflows/cd.yaml)
 [![Star](https://img.shields.io/github/stars/anucvml/vidat?style=social)](https://github.com/anucvml/vidat)
 
+[![GitHub Pages Host](https://img.shields.io/badge/GitHub%20Pages-Host-181717?style=for-the-badge&logo=github)](https://lasserk98.github.io/vidat/)
+[![GitHub Pages Demo](https://img.shields.io/badge/GitHub%20Pages-Demo-181717?style=for-the-badge&logo=github)](https://lasserk98.github.io/vidat/?annotation=annotation/example.json)
 [![ANU Host](https://img.shields.io/badge/ANU-Host-b97d1c?style=for-the-badge)](https://users.cecs.anu.edu.au/~sgould/vidat2/)
 [![ANU Demo](https://img.shields.io/badge/ANU-Demo-b97d1c?style=for-the-badge)](https://users.cecs.anu.edu.au/~sgould/vidat2/?annotation=annotation/example.json)
 [![Aliyun Host](https://img.shields.io/badge/Aliyun-Host-45d3ff?style=for-the-badge)](https://vidat2.davidz.cn/)
@@ -107,6 +109,28 @@ content-type: application/json
 2. Unzip all files and put them behind a web server ([Nginx](http://nginx.org/), [Apache](http://httpd.apache.org/),
    etc.). Note that open `index.html` in your explorer does **not** work.
 3. Open in your favourite browser.
+
+### This fork's GitHub Pages deployment
+
+This fork is hosted at **<https://lasserk98.github.io/vidat/>**, served from the `gh-pages` branch of this repository.
+
+The branch holds a prebuilt `dist/` (plus an empty `.nojekyll`), so no build runs on GitHub's side. To refresh it after
+changing the source:
+
+```bash
+npm ci && npm run build          # build into dist/
+git worktree add /tmp/ghp gh-pages
+rm -rf /tmp/ghp/* && cp -r dist/. /tmp/ghp/ && touch /tmp/ghp/.nojekyll
+git -C /tmp/ghp add -A && git -C /tmp/ghp commit -m "Deploy" && git -C /tmp/ghp push
+git worktree remove /tmp/ghp
+```
+
+Build with `npm run build` rather than `npx vite build` — the version shown in the UI comes from
+`process.env.npm_package_version`, which only npm sets.
+
+Because a project Pages site is served from a subpath (`/vidat/`), any URL parameter pointing at a bundled file must use
+a **relative** path (`?annotation=annotation/example.json`, not `?annotation=/annotation/example.json`) — a leading
+slash resolves against the domain root and 404s.
 
 ## URL Parameters
 
