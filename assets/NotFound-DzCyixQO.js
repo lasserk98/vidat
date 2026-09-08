@@ -1,0 +1,1 @@
+import{H as e,I as t,M as n,d as r,h as i}from"./runtime-core.esm-bundler-D9z12ZaV.js";import{b as a,n as o}from"./index-B8MFUwAP.js";var s={};function c(o,s){let c=a,l=t(`router-link`);return n(),r(`div`,null,[i(l,{to:`/`},{default:e(()=>[i(c,{src:`img/404.svg`,style:{"max-width":`40%`},alt:`404`,class:`absolute-center`})]),_:1})])}var l=o(s,[[`render`,c]]);export{l as default};
