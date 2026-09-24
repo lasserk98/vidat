@@ -1,1 +1,0 @@
-import{a6 as n,a7 as s,o as a,z as c,i as e,w as r,a8 as _}from"./index-ff58ebee.js";const l={};function i(m,u){const t=_,o=s("router-link");return a(),c("div",null,[e(o,{to:"/"},{default:r(()=>[e(t,{src:"img/404.svg",style:{"max-width":"40%"},alt:"404",class:"absolute-center"})]),_:1})])}const f=n(l,[["render",i]]);export{f as default};
