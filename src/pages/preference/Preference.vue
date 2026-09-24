@@ -225,6 +225,31 @@
         <q-item-section>
           <q-item-label>
             <span
+              >Hierarchical Timeline<q-tooltip
+                anchor="center right"
+                self="center left"
+                >Whether to show the Microsurgery hierarchy view (EP/SC/S/T/ST + Instrument rows) instead of the
+                standard single-row timeline.</q-tooltip
+              ></span
+            >
+          </q-item-label>
+        </q-item-section>
+        <q-item-section avatar>
+          <q-toggle
+            color="green"
+            v-model="hierarchicalTimeline"
+            checked-icon="check"
+            unchecked-icon="clear"
+          ></q-toggle>
+        </q-item-section>
+      </q-item>
+      <q-item
+        tag="label"
+        v-ripple
+      >
+        <q-item-section>
+          <q-item-label>
+            <span
               >Mute video<q-tooltip
                 anchor="center right"
                 self="center left"
@@ -309,6 +334,7 @@ const {
   regions,
   skeletons,
   actions,
+  hierarchicalTimeline,
   muted,
   grayscale,
   showPopup

@@ -29,6 +29,16 @@
         >
           <q-tooltip>{{ showEdit ? 'done' : 'edit' }}</q-tooltip>
         </q-btn>
+        <q-btn
+          outline
+          :icon="preferenceStore.hierarchicalTimeline ? 'view_agenda' : 'view_stream'"
+          @click="preferenceStore.hierarchicalTimeline = !preferenceStore.hierarchicalTimeline"
+          :disable="!annotationStore.video.frames"
+        >
+          <q-tooltip>{{
+            preferenceStore.hierarchicalTimeline ? 'switch to standard timeline' : 'switch to hierarchical timeline'
+          }}</q-tooltip>
+        </q-btn>
       </q-btn-group>
       <q-select
         v-if="!$q.screen.lt.md"
@@ -63,33 +73,48 @@
       :class="[{ 'col-12': $q.screen.lt.md, 'q-px-lg': !$q.screen.lt.md }]"
       :style="{ order: !$q.screen.lt.md ? 0 : -1 }"
     >
-      <q-range
-        class="custom-range"
-        :class="{ 'hide-right-marker': currentFocus === 'left', 'hide-left-marker': currentFocus === 'right' }"
-        :style="rangeStyle"
-        label-always
-        drag-range
-        snap
-        track-size="8px"
-        :min="0"
-        :max="annotationStore.video.frames - 1"
-        :step="1"
-        left-label-text-color="blue-grey-1"
-        right-label-text-color="blue-grey-1"
-        left-label-color="primary"
-        right-label-color="primary"
-        :left-label-value="
-          'L: ' + currentFrameRange.min + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.min)) + ' s'
-        "
-        :right-label-value="
-          'R: ' + currentFrameRange.max + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.max)) + ' s'
-        "
-        :model-value="currentFrameRange"
-        @update:model-value="handleInput"
-        :disable="!annotationStore.video.frames"
-      />
+      <div
+        class="row items-center"
+        style="gap: 4px"
+      >
+        <!-- Width + gap must match .row-label in HierarchicalActionIndicator.vue so the slider's
+             0%-100% track lines up exactly with each hierarchical row's track. -->
+        <span
+          v-if="showHierarchicalTimeline"
+          style="width: 20px; flex-shrink: 0"
+        ></span>
+        <q-range
+          class="custom-range col-grow"
+          :class="{ 'hide-right-marker': currentFocus === 'left', 'hide-left-marker': currentFocus === 'right' }"
+          :style="rangeStyle"
+          label-always
+          drag-range
+          snap
+          track-size="8px"
+          :min="0"
+          :max="annotationStore.video.frames - 1"
+          :step="1"
+          left-label-text-color="blue-grey-1"
+          right-label-text-color="blue-grey-1"
+          left-label-color="primary"
+          right-label-color="primary"
+          :left-label-value="
+            'L: ' + currentFrameRange.min + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.min)) + ' s'
+          "
+          :right-label-value="
+            'R: ' + currentFrameRange.max + ' | ' + utils.toFixed2(utils.index2time(currentFrameRange.max)) + ' s'
+          "
+          :model-value="currentFrameRange"
+          @update:model-value="handleInput"
+          :disable="!annotationStore.video.frames"
+        />
+      </div>
       <ActionIndicator
-        v-if="preferenceStore.actions"
+        v-if="preferenceStore.actions && (!preferenceStore.hierarchicalTimeline || hasUnmatchedHierarchyLabels)"
+        style="margin-top: -10px"
+      />
+      <HierarchicalActionIndicator
+        v-if="showHierarchicalTimeline"
         style="margin-top: -10px"
       />
     </div>
@@ -124,17 +149,42 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import { frameIndicator } from '~/hooks/frameIndicator.js'
+import { hasUnmatchedActionAnnotations } from '~/libs/hierarchyLevels.js'
 import utils from '~/libs/utils.js'
 import ActionIndicator from '~/pages/annotation/components/ActionIndicator.vue'
+import HierarchicalActionIndicator from '~/pages/annotation/components/HierarchicalActionIndicator.vue'
 import KeyframeTable from '~/pages/annotation/components/KeyframeTable.vue'
 import { useAnnotationStore } from '~/store/annotation.js'
+import { useConfigurationStore } from '~/store/configuration.js'
 import { usePreferenceStore } from '~/store/preference.js'
 
 const annotationStore = useAnnotationStore()
+const configurationStore = useConfigurationStore()
 const preferenceStore = usePreferenceStore()
+
+const hasUnmatchedHierarchyLabels = computed(() =>
+  hasUnmatchedActionAnnotations(annotationStore.actionAnnotationList, configurationStore.actionLabelData)
+)
+watch(
+  () => preferenceStore.hierarchicalTimeline && hasUnmatchedHierarchyLabels.value,
+  (shouldRegress) => {
+    if (shouldRegress) {
+      preferenceStore.hierarchicalTimeline = false
+      utils.notify(
+        'Switched to the standard timeline: some annotations have non-hierarchical labels.',
+        'warning'
+      )
+    }
+  },
+  { immediate: true }
+)
+
+const showHierarchicalTimeline = computed(
+  () => preferenceStore.actions && preferenceStore.hierarchicalTimeline && !hasUnmatchedHierarchyLabels.value
+)
 
 // left buttons
 const isPaused = ref(true)

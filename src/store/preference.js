@@ -14,6 +14,7 @@ const DEFAULT_PREFERENCE = {
   regions: true,
   skeletons: true,
   actions: true,
+  hierarchicalTimeline: true,
   muted: true,
   grayscale: false,
   showPopup: true

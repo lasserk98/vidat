@@ -61,7 +61,7 @@ export const frameIndicator = () => {
       positionHeightOffset
     )
 
-    if (preferenceStore.objects) {
+    if (preferenceStore.objects && !preferenceStore.hierarchicalTimeline) {
       const frameList = Object.entries(annotationStore.objectAnnotationListMap)
         .filter(([, annotationList]) => annotationList.length)
         .map(([frame]) => [parseInt(frame), 1])
@@ -76,7 +76,7 @@ export const frameIndicator = () => {
       }
     }
 
-    if (preferenceStore.regions) {
+    if (preferenceStore.regions && !preferenceStore.hierarchicalTimeline) {
       const frameList = Object.entries(annotationStore.regionAnnotationListMap)
         .filter(([, annotationList]) => annotationList.length)
         .map(([frame]) => [parseInt(frame), 1])
@@ -91,7 +91,7 @@ export const frameIndicator = () => {
       }
     }
 
-    if (preferenceStore.skeletons) {
+    if (preferenceStore.skeletons && !preferenceStore.hierarchicalTimeline) {
       const frameList = Object.entries(annotationStore.skeletonAnnotationListMap)
         .filter(([, annotationList]) => annotationList.length)
         .map(([frame]) => [parseInt(frame), 1])
