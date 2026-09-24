@@ -1,6 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>self["MonacoEnvironment"] = (function (paths) {
+          return {
+            globalAPI: false,
+            getWorkerUrl : function (moduleId, label) {
+              var result =  paths[label];
+              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
+                var currentUrl = String(window.location);
+                var currentOrigin = currentUrl.substr(0, currentUrl.length - window.location.hash.length - window.location.search.length - window.location.pathname.length);
+                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
+                  var js = '/*' + label + '*/importScripts("' + result + '");';
+                  var blob = new Blob([js], { type: 'application/javascript' });
+                  return URL.createObjectURL(blob);
+                }
+              }
+              return result;
+            }
+          };
+        })({
+  "editorWorkerService": "https://unpkg.com/vite-plugin-monaco-editor@1.0.10/cdn/editor.worker.bundle.js",
+  "json": "https://unpkg.com/vite-plugin-monaco-editor@1.0.10/cdn/json.worker.bundle.js"
+});</script>
+
     <meta charset="UTF-8" />
     <title>Vidat</title>
     <meta
@@ -28,18 +50,18 @@
     />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0"
     />
     <link
       rel="shortcut icon"
       href="img/logo.svg"
     />
-    <script type="module" crossorigin src="./assets/index-B8MFUwAP.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/chunk-aKtaBQYM.js">
-    <link rel="modulepreload" crossorigin href="./assets/runtime-core.esm-bundler-D9z12ZaV.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-BS_w6KMR.css">
+    <script type="module" crossorigin src="./assets/index-ff58ebee.js"></script>
+    <link rel="stylesheet" href="./assets/index-2299648e.css">
   </head>
   <body>
     <div id="app"></div>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.at"></script>
+    
   </body>
 </html>
