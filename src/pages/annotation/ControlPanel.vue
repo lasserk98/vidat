@@ -69,7 +69,7 @@
         </q-item-section>
       </q-item>
     </div>
-    <div>
+    <div v-if="annotationStore.mode !== 'action'">
       <q-item dense>
         <q-item-section class="text-center">Mode</q-item-section>
       </q-item>
@@ -154,10 +154,6 @@
           <q-toggle
             v-model="preferenceStore.muted"
             label="Muted"
-          />
-          <q-toggle
-            v-model="preferenceStore.grayscale"
-            label="Grayscale"
           />
           <q-toggle
             v-if="!$q.platform.has.touch && annotationStore.mode !== 'action'"

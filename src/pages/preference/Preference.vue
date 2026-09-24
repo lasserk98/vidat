@@ -129,78 +129,6 @@
         <q-item-section>
           <q-item-label>
             <span
-              >Objects<q-tooltip
-                anchor="center right"
-                self="center left"
-                >Whether to show Objects mode or not.</q-tooltip
-              ></span
-            >
-          </q-item-label>
-        </q-item-section>
-        <q-item-section avatar>
-          <q-toggle
-            color="green"
-            v-model="objects"
-            checked-icon="check"
-            unchecked-icon="clear"
-          ></q-toggle>
-        </q-item-section>
-      </q-item>
-      <q-item
-        tag="label"
-        v-ripple
-      >
-        <q-item-section>
-          <q-item-label>
-            <span
-              >Regions<q-tooltip
-                anchor="center right"
-                self="center left"
-                >Whether to show Regions mode or not.</q-tooltip
-              ></span
-            >
-          </q-item-label>
-        </q-item-section>
-        <q-item-section avatar>
-          <q-toggle
-            color="green"
-            v-model="regions"
-            checked-icon="check"
-            unchecked-icon="clear"
-          ></q-toggle>
-        </q-item-section>
-      </q-item>
-      <q-item
-        tag="label"
-        v-ripple
-      >
-        <q-item-section>
-          <q-item-label>
-            <span
-              >Skeletons<q-tooltip
-                anchor="center right"
-                self="center left"
-                >Whether to show Skeletons mode or not.</q-tooltip
-              ></span
-            >
-          </q-item-label>
-        </q-item-section>
-        <q-item-section avatar>
-          <q-toggle
-            color="green"
-            v-model="skeletons"
-            checked-icon="check"
-            unchecked-icon="clear"
-          ></q-toggle>
-        </q-item-section>
-      </q-item>
-      <q-item
-        tag="label"
-        v-ripple
-      >
-        <q-item-section>
-          <q-item-label>
-            <span
               >Actions / Video segments<q-tooltip
                 anchor="center right"
                 self="center left"
@@ -274,30 +202,6 @@
         <q-item-section>
           <q-item-label>
             <span
-              >Grayscale video<q-tooltip
-                anchor="center right"
-                self="center left"
-                >Whether to make video in grayscale mode.</q-tooltip
-              ></span
-            >
-          </q-item-label>
-        </q-item-section>
-        <q-item-section avatar>
-          <q-toggle
-            color="green"
-            v-model="grayscale"
-            checked-icon="check"
-            unchecked-icon="clear"
-          ></q-toggle>
-        </q-item-section>
-      </q-item>
-      <q-item
-        tag="label"
-        v-ripple
-      >
-        <q-item-section>
-          <q-item-label>
-            <span
               >Show Popup<q-tooltip
                 anchor="center right"
                 self="center left"
@@ -330,13 +234,9 @@ const {
   defaultFps,
   defaultFpk,
   decoder,
-  objects,
-  regions,
-  skeletons,
   actions,
   hierarchicalTimeline,
   muted,
-  grayscale,
   showPopup
 } = storeToRefs(preferenceStore)
 </script>

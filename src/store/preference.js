@@ -10,9 +10,9 @@ const DEFAULT_PREFERENCE = {
   defaultFpk: 50,
   decoder: 'auto', // auto, v1, v2
   previewQuality: 0.7,
-  objects: true,
-  regions: true,
-  skeletons: true,
+  objects: false,
+  regions: false,
+  skeletons: false,
   actions: true,
   hierarchicalTimeline: true,
   muted: true,
