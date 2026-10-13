@@ -103,7 +103,9 @@ const rows = computed(() => {
     entries
   }))
   return [
-    ...hierarchy.map((row) => ({ key: row.level.key, label: row.level.label, entries: row.entries })),
+    ...hierarchy
+      .filter((row) => !row.level.optional || row.entries.length)
+      .map((row) => ({ key: row.level.key, label: row.level.label, entries: row.entries })),
     ...instrumentRows
   ]
 })

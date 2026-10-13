@@ -1,8 +1,11 @@
 /**
  * Hierarchy levels for the Microsurgery timeline view.
  * Each action label's row is determined by matching its name against these prefixes, in order.
+ * `optional` levels get no timeline row until at least one annotation uses them.
+ * The prefixes mirror LEVELS in ENT-Phase-Framework's hierarchy.py (plus the vidat-only instrument row).
  */
 const HIERARCHY_LEVELS = [
+  { key: 'p', label: 'P', prefix: 'P:', optional: true },
   { key: 'ep', label: 'EP', prefix: 'EP:' },
   { key: 'sc', label: 'SC', prefix: 'SC:' },
   { key: 's', label: 'S', prefix: 'S:' },

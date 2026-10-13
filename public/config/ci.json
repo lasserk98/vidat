@@ -1,0 +1,916 @@
+{
+  "objectLabelData": [
+    {
+      "id": 0,
+      "name": "default",
+      "color": "#00FF00"
+    }
+  ],
+  "actionLabelData": [
+    {
+      "id": 0,
+      "name": "default",
+      "color": "#0000FF",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 1,
+      "name": "EP: Access",
+      "color": "#21b360",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "name": "EP: Exposure",
+      "color": "#603cdf",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "name": "EP: Bone Access",
+      "color": "#cb4443",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "name": "EP: Dissection",
+      "color": "#28243f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "name": "EP: Implantation",
+      "color": "#0e2d04",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 6,
+      "name": "EP: Closure",
+      "color": "#22724f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 7,
+      "name": "SC: Retroaurikuläre Inzision und Weichteilpräparation",
+      "color": "#76da63",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 8,
+      "name": "SC: Implantatbett zur Aufnahme des Implantatgehäuses vorbereiten",
+      "color": "#73c293",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 9,
+      "name": "SC: Exposition eines Zugangs zur Cochlea über dem Warzernfortsatz",
+      "color": "#581220",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 11,
+      "name": "SC: Cochlea eröffnen",
+      "color": "#174e6d",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 12,
+      "name": "SC: Fixierung des Elektronikpaketes und Einführen des Elektrodenträgers in die Cochlea",
+      "color": "#f3b5ce",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "name": "SC: Schichtweiser Verschluss",
+      "color": "#5fcccb",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 14,
+      "name": "S: Hautschnitt",
+      "color": "#904382",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 15,
+      "name": "S: Muskuloperiostalen Lappen bilden",
+      "color": "#8b8571",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 16,
+      "name": "S: Implantatbett anlegen",
+      "color": "#d281af",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 17,
+      "name": "S: Antrotomie",
+      "color": "#6af66a",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 18,
+      "name": "S: subtotale Mastoidektomie",
+      "color": "#6e0b94",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 19,
+      "name": "S: Fazialis-Kanal und Chorda tympani exponieren",
+      "color": "#2c34cd",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "name": "S: Eröffnen des Recessus facialis",
+      "color": "#8602c2",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 21,
+      "name": "S: Rundes Fenster darstellen",
+      "color": "#af58ac",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 22,
+      "name": "S: Rundfenster-Eröffnung",
+      "color": "#37c9a6",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 23,
+      "name": "S: Cochleostomie",
+      "color": "#702db5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 24,
+      "name": "S: CI-Gehäuse fixieren",
+      "color": "#2260f7",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "name": "S: Elektrodenträger einführen",
+      "color": "#32a817",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 26,
+      "name": "S: Abdichten der Cochlea um den Elektrodenträger",
+      "color": "#a21d64",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "name": "S: Elektrode vor Dislokation aus der Cochlea sichern",
+      "color": "#51732f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 28,
+      "name": "S: Ausgleichen von Unebenheiten um das Implantatgehäuse mit Knochenmehl",
+      "color": "#1ed2c7",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "name": "S: Ausgleichen von Unebenheiten und Weichteilnaht",
+      "color": "#9bcc60",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 30,
+      "name": "S: Verband",
+      "color": "#59f34c",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 31,
+      "name": "T: C-/S-förmige retroaurikuläre Inzision",
+      "color": "#2269e7",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 33,
+      "name": "T: Anterioren Periostlappen nach vorne klappen",
+      "color": "#0a5786",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 34,
+      "name": "T: Posterioren Periostlappen nach hinten klappen (Mastoidkortex exponieren)",
+      "color": "#5b4327",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 35,
+      "name": "T: Wundsperrer einsetzen",
+      "color": "#6163e2",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 36,
+      "name": "T: Anlage einer subperiostalen Tasche",
+      "color": "#b9814e",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 39,
+      "name": "T: Fixierungsnäthe einlegen",
+      "color": "#1972d8",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 41,
+      "name": "T: Eröffnung der Cortikalis des MacEwan- Dreiecks (Dreieck posterosuperior des Gehörgangs) beginnen",
+      "color": "#48ff3e",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 42,
+      "name": "T: Eröffnen der pneumatisierten Räume des Warzenfortsatzes ( Farbe ändert sich)",
+      "color": "#b6de7a",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 44,
+      "name": "T: Identifikation des Chorda-Fazialis-Winkels",
+      "color": "#a15fc5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 45,
+      "name": "T: Ausdünnen des Knochens der Gehörgangshinterwand über der Chorda bis zum Eintritt in den N. fazialis",
+      "color": "#9d2a7d",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 46,
+      "name": "T: Ausdünnen des Knochens über dem N. fazialis zwischen horizontalem Bogengang, Eintritt der Chorda tympani und Fossa incudis",
+      "color": "#33604f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 47,
+      "name": "T: Ausfräsen des Knochens zwischen N. Fazialis (posterior) und Chorda tympani (anterior) unter Belassung einer knöchernen Schicht auf den Nerven",
+      "color": "#e375bb",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 48,
+      "name": "T: Dreieckiges Knochenfenster schaffen",
+      "color": "#69a8b1",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 49,
+      "name": "T: durch Recessus facialis Identifikation der Rundfensternische",
+      "color": "#21cd76",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 50,
+      "name": "T: Knöcherne Überhänge des Promontoriums abtragen",
+      "color": "#ee6967",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 51,
+      "name": "T: Rundfenstermembran vollständig exponieren",
+      "color": "#c6b5d5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 52,
+      "name": "T: Rundfenstermembran mit feiner Nadel/Mikromesser inzidieren > Perilymphe sichtbar",
+      "color": "#a72d66",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 53,
+      "name": "T: Cochleostomie antero-superior des runden Fensters anlegen",
+      "color": "#b0ed02",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 54,
+      "name": "T: Fräsen eines Kanals für den Elektrodenträger vom Implantatbett zum Mastoid",
+      "color": "#1f4111",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 55,
+      "name": "T: Empfängerspule in subperiostaler Tasche positionieren",
+      "color": "#bebca2",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 56,
+      "name": "T: Fixierung der Elekttronikpakete im Knochenbett mit vorgelegten Haltenäthen",
+      "color": "#0d112e",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 57,
+      "name": "T: Greifen des Elektrodenträgers und Ausrichtung des grünen Punktes (MED-EL) Richtung Modiuolus (Stapes)",
+      "color": "#faccee",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 58,
+      "name": "T: Greifen des Elektrodenträgers und Ausrichtung des Fähnchens nach caudal in Richtung des Chorda-Fazialis- Winkels (Cochlear SlimStraight)",
+      "color": "#cadae6",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 59,
+      "name": "T: Elektrode langsam und vollständig in die Scala tympani einführen",
+      "color": "#15f71a",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 61,
+      "name": "T: Insertionstiefe anhand der Elektrodenmarkierungen kontrollieren (Mitte der Strecke zwischen den weißen Ringen ist die ÖXnung der Cochlea) – (Cochlear SlimStraight)",
+      "color": "#f8f7b6",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 62,
+      "name": "T: Entnahme eines dünnen Streifens Temporalisfaszie",
+      "color": "#5b0a39",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 63,
+      "name": "T: Ummanteln des Elektrodenträges an der Cochleostomie/Rundfensterzugang",
+      "color": "#742087",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 64,
+      "name": "T: Sichern der Elektrode mit Fixationsclip in der Fossa incudis",
+      "color": "#54170b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 65,
+      "name": "T: Positionieren von Knochenmehl um das Elektronikpaket",
+      "color": "#41fb86",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 66,
+      "name": "T: Abdecken des Elektrodenträgers im Kanal mit Knochenmehl",
+      "color": "#f9dd18",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 67,
+      "name": "T: Anmodellieren des Gehäuses mit Knochenmehl",
+      "color": "#c5392a",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 68,
+      "name": "T: Anmodellieren des Elektrodenträger im Kanal mit Knochenmehl",
+      "color": "#6da8c1",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 69,
+      "name": "T: Entnahme der Wundsperrer",
+      "color": "#6cbfbe",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 70,
+      "name": "T: Periostlappen readaptieren und vernähen",
+      "color": "#80caf8",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 71,
+      "name": "T: Subkutane Naht (resorbierbar)",
+      "color": "#b028bf",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 72,
+      "name": "T: Hautnaht (fortlaufend)",
+      "color": "#817f52",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 73,
+      "name": "T: Steriler Druckverband (Mastoidverband) anlegen",
+      "color": "#06b3ea",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 75,
+      "name": "ST: Fissura tympanomastoidea",
+      "color": "#26837f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 78,
+      "name": "ST: Kontrolle der Implantatausrichtung (45° zur Linea temporalis, 2/3 des Elektronikpaketes liegen superior und posterior der Sutura parietomastoidea)",
+      "color": "#4e9f71",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 88,
+      "name": "ST: Ausdünnen des Knochens des Promontoriums anterior-superior des runden Fensters",
+      "color": "#301dde",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 89,
+      "name": "ST: „blue lining“ des Endostes der Cochlea",
+      "color": "#69bd6c",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 90,
+      "name": "ST: Eröffnen des Endostes der Scala tympani",
+      "color": "#fc3539",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 92,
+      "name": "ST: Einbringen des Fixationsclips auf die „Brücke“ der Fossa incudis",
+      "color": "#aa25d5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 93,
+      "name": "ST: Crimpen des Clips an der Brücke",
+      "color": "#0cc1de",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 94,
+      "name": "ST: Einschieben des Elektrodenträgers in den Clip",
+      "color": "#c3175b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 95,
+      "name": "ST: Crimpen des Clips um den Elektrodenträger",
+      "color": "#5a265a",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 96,
+      "name": "ST: Einschlaufen des Elektrodenträger in die Mastoidhöhle so dass keine Schlaufe lateral der Corticalis zu liegen kommt",
+      "color": "#7b14e6",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 97,
+      "name": "ST: Abtragen von Schleimhaut von der Membran",
+      "color": "#ba6a59",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 98,
+      "name": "EP: Technical Measurement",
+      "color": "#0e1798",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 99,
+      "name": "SC: Eröffnen des Recessus facialis (posterirre Tympanotomie) durch Ausfräsen des Knochens zwischen N. fazialis pars mastoidea und Chorda Tympani",
+      "color": "#c881dc",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 100,
+      "name": "S: Inspektion und Reinigung",
+      "color": "#84a3af",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 101,
+      "name": "S: Messung der Impedanzen",
+      "color": "#4f8221",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 102,
+      "name": "S: Ableitung E-BERA",
+      "color": "#24cf77",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 103,
+      "name": "T: Mikroskopische/endoskopische Inspektion des Gehörgangs",
+      "color": "#bf893e",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 104,
+      "name": "T: Cerumen entfernen",
+      "color": "#1a6145",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 105,
+      "name": "T: Infiltration mit Lokalanästhetikum",
+      "color": "#a45af5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 106,
+      "name": "T: Heben des posterioren Hautlappens vom Pericranium",
+      "color": "#faf7c5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 107,
+      "name": "T: Lösen der Ohrmuschel vom Pericranium",
+      "color": "#0eb1fc",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 108,
+      "name": "T: Periost über dem Mastoid mit Skalpell inzidieren",
+      "color": "#a24872",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 109,
+      "name": "T: Periost inferior hinten mit dem Raspatorium abschieben",
+      "color": "#de37fe",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 110,
+      "name": "T: Knochenbett mit Bohrer fräsen (Rampe oder Formschluss, Tiefe ca. 1–2 mm, Geometrie abhängig von Implantatform der Herrsteller)",
+      "color": "#bcf1ed",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 111,
+      "name": "T: epicorticale Bohrlöcher für Nähte fräsen",
+      "color": "#afe130",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 112,
+      "name": "T: Selbsthaltende Retraktoren umsetzen",
+      "color": "#16665f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 113,
+      "name": "T: Ausschleifen aller notwendigen belüfteten Warzenfortsatz-Zellen und des Knochens zur Exposition des Chorda- Fazialis-Winkels",
+      "color": "#40078e",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 114,
+      "name": "T: Fluten der Sinus tympani mit BSS (optional)",
+      "color": "#12c9ce",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 115,
+      "name": "T: Greifen des Sheath handle und Ausrichten desselben Richtung Modiolus. Einführen des internal sheath über das runde Fenster (Cochlear CI1032)",
+      "color": "#a10446",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 116,
+      "name": "T: Greifen des Sheath handle und Vorschieben der Elektrode über die weiße Positionierungsmarkierung bis beide Positionierungsmarkierungen auf gleicher Höhe liegen (Cochlear CI1032",
+      "color": "#cd0e35",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 117,
+      "name": "T: Silikonring dichtet Zugang zur Cochlea ab (MED-EL FLEXsoft/FLEX34)",
+      "color": "#3ccf3b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 118,
+      "name": "T: Anlage Telemetriespule",
+      "color": "#b81bd8",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 119,
+      "name": "ST: Darstellung der Spina suprameatum / Henle’s Spine (Gehörgangseingang exponieren)",
+      "color": "#bbeead",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 120,
+      "name": "ST: Darstellung der Linea temporalis und Proc. zygomaticus ossis temporalis",
+      "color": "#e51dc3",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 121,
+      "name": "ST: Darstellung der Sutura parietomastoidea",
+      "color": "#757d49",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 122,
+      "name": "ST: Bohrung nach medial Richtung Antrum – superiore Begrenzung: Linea temporalis (Tegmen-Linie) anteriore Begrenzung: Winkel zwischen Gehörgangshinterwand und Proc. Zygomaticus ossis temporalis",
+      "color": "#e12b31",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 123,
+      "name": "ST: Darstellung der Ebene derDura mater der mittleren Schädelgrube",
+      "color": "#8f3a75",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 124,
+      "name": "ST: Darstellung des Canalis semicircularis lateralis (horizontaler Bogengang)",
+      "color": "#6ad78d",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 125,
+      "name": "ST: Darstellung des Kurzen Ambossfortsatz Corpus und Crus breve incudis",
+      "color": "#99bb02",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 126,
+      "name": "ST: Darstellung des Sinus sigmoideus als posteriore Begrenzung (bläulich durchscheinende Sinuswand identifizieren, dünne Knochenschale belassen)",
+      "color": "#c6468b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 127,
+      "name": "ST: Darstellung des Sinus- Dura Winkels (Citelli Winkel, (Zusammentreffen von Tegmen und Sinus sigmoideus)",
+      "color": "#cbc89b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 128,
+      "name": "ST: Darstellung und Eröffnen der retrofazialen Zellen",
+      "color": "#682185",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 129,
+      "name": "ST: Darstellung des Ursprungs des M. digastricus, venter perosterior (digastric ridge)",
+      "color": "#65eac3",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 130,
+      "name": "ST: Darstellung der Fossa incudis („White Dot\" , (posteriores Ligament des Incus) als Orientierungspunkt)",
+      "color": "#ab4120",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 131,
+      "name": "ST: Darstellung der Eminentia pyramidalis, Incudo-Stapedialgelenk, Rundfenster-Nische",
+      "color": "#3fb783",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 132,
+      "name": "ST: Erweitern der Öffnung auf Durchmesser der Elektrode und Abtragen der lateralen Stufe",
+      "color": "#12f1de",
+      "objects": [
+        0
+      ]
+    }
+  ],
+  "skeletonTypeData": []
+}

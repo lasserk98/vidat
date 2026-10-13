@@ -170,6 +170,16 @@ Path to the video file. Please refer to [`decoder`](#decoder) for more informati
 
 Path to the video file. Please refer to [File Formats - Config](#file-formats) for format details.
 
+**Bundled ENT surgical-phase label sets** (generated, do not edit by hand): `config/ci.json` (cochlear implant) and
+`config/stapes.json`, e.g. `?config=config/ci.json`. Vidat only reads JSON, so these are compiled from the
+`labels.yaml` + `labels.lock.yaml` maintained in the ENT-Phase-Framework repo:
+
+```bash
+uv run python scripts/labels_tool.py export-vidat --spec labels/CI/labels.yaml --vidat-root <path to vidat> --force
+```
+
+Ignored when the `annotation` parameter is also given, because an annotation file carries its own config.
+
 ### `mode`
 
 **Default** `null`
