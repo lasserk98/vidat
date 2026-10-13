@@ -28,6 +28,8 @@ public/annotation/*
 !public/annotation/example.json
 public/config/*
 !public/config/example.json
+!public/config/ci.json
+!public/config/stapes.json
 public/video/*
 !src/public/video/example.mp4
 
