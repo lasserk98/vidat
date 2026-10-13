@@ -1,0 +1,556 @@
+{
+  "objectLabelData": [
+    {
+      "id": 0,
+      "name": "default",
+      "color": "#00FF00"
+    }
+  ],
+  "actionLabelData": [
+    {
+      "id": 0,
+      "name": "default",
+      "color": "#0000FF",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "name": "EP: Access",
+      "color": "#85ad85",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "name": "EP: Exposure",
+      "color": "#adad91",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "name": "EP: Exposure - Middle Ear Exposure (Scutum)",
+      "color": "#CC55FF",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 6,
+      "name": "EP: Exposure - Ossicular Assessment",
+      "color": "#AABB22",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 7,
+      "name": "EP: Dissection",
+      "color": "#FF2255",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 8,
+      "name": "EP: Transection",
+      "color": "#7755FF",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 9,
+      "name": "EP: Implantation",
+      "color": "#BB55BB",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 10,
+      "name": "EP: Closure",
+      "color": "#EEBB33",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 11,
+      "name": "SC: Gehörgang vorbereiten",
+      "color": "#DD5566",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 12,
+      "name": "SC: Tympanomeatalen Lappen heben",
+      "color": "#551144",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "name": "SC: Übersicht über Stapes-Region schaﬀen",
+      "color": "#2299EE",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 14,
+      "name": "SC: Fixationsprüfung",
+      "color": "#252545",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 15,
+      "name": "SC: Stapes-Sehne und Gelenk lösen",
+      "color": "#99AA66",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 16,
+      "name": "SC: Stapes-Überbau entfernen",
+      "color": "#77CCCC",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 17,
+      "name": "SC: Fußplatte perforieren (Stapedotomie)",
+      "color": "#118f31",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 18,
+      "name": "SC: Prothese einsetzen und fixieren",
+      "color": "#897178",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 19,
+      "name": "SC: Stapedotomie abdecken",
+      "color": "#bb92fe",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "name": "SC: Tympanomeatalen Lappen zurücklegen",
+      "color": "#8bf0bd",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 21,
+      "name": "S: Inspektion und Reinigung",
+      "color": "#89de22",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 22,
+      "name": "S: Inzision für endauralen Zugang",
+      "color": "#45f023",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 23,
+      "name": "S: Lappenelevation",
+      "color": "#0dc2c8",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 24,
+      "name": "S: Posteriores Scutum abtragen",
+      "color": "#604710",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "name": "S: Chorda tympani darstellen (erhalten vs verlagern vs entfernen)",
+      "color": "#bb54a7",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 26,
+      "name": "S: Ossikelkette palpieren",
+      "color": "#c9b9a3",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "name": "S: Stapediussehne durchtrennen",
+      "color": "#3ea46d",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 28,
+      "name": "S: Amboss-Steigbügelgelenk (Incudostapedialgelenk) lösen und mobilisieren",
+      "color": "#509355",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "name": "S: Crura frakturieren",
+      "color": "#f16102",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 30,
+      "name": "S: Stapedotomie",
+      "color": "#9377ab",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 31,
+      "name": "S: Prothese platzieren",
+      "color": "#f0e21b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 32,
+      "name": "S: Prothese fixieren",
+      "color": "#d263ee",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 33,
+      "name": "S: Gewebe platzieren",
+      "color": "#65b415",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 34,
+      "name": "S: Reposition",
+      "color": "#5c3fd9",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 35,
+      "name": "T: Mikroskopische/ endoskopische Inspektion des Gehörgangs",
+      "color": "#98b576",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 36,
+      "name": "T: Cerumen entfernen",
+      "color": "#2a21a2",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 37,
+      "name": "T: Gehörgangshaut mit Lokalanästhetikum infiltrieren",
+      "color": "#1f84c5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 38,
+      "name": "T: Gehörgangshaut ca. 5–8 mm lateral des Anulus inzidieren (ca. 6–12 Uhr-Position) bis auf den Knochen",
+      "color": "#808b6b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 39,
+      "name": "T: Haut mit Rundmesser/ Elevator vom Knochen lösen",
+      "color": "#a165f6",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 40,
+      "name": "T: Anulus tympanicus aus dem Sulcus tympanicus heben",
+      "color": "#bf7361",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 41,
+      "name": "T: Mittelohr eröﬀnen – Paukenhöhle darstellen",
+      "color": "#eccdf1",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 42,
+      "name": "T: Knöchernes Scutum (posterosuperior) mit Curette oder kleinem Bohrer abtragen",
+      "color": "#68d24f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 43,
+      "name": "T: Schrittweise abtragen bis Stapes-Suprastruktur, Incudostapedialgelenk und ovales Fenster vollständig sichtbar",
+      "color": "#909c17",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 44,
+      "name": "T: Chorda tympani identifizieren (verläuft zwischen Amboss und Gehörgangswand)",
+      "color": "#f7b018",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 45,
+      "name": "T: Chorda vorsichtig mobilisieren und nach anterior/ inferior verlagern ggf entfernen",
+      "color": "#9c1529",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 46,
+      "name": "T: Stapes mit Palpationshaken prüfen: Fixation der Fußplatte bestätigen (kein Rundenfensterreflex)",
+      "color": "#e2a2d8",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 47,
+      "name": "T: Amboss und Hammer auf freie Mobilität prüfen (Ausschluss Malleus-Fixation)",
+      "color": "#bdc328",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 48,
+      "name": "T: Abstand Amboss-Fußplatte messen (für Prothesenlänge, typisch 4,0–4,75 mm)",
+      "color": "#667843",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 49,
+      "name": "T: M. stapedius-Sehne mit feiner Schere",
+      "color": "#29e779",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 50,
+      "name": "T: Sehnenrest entfernen",
+      "color": "#66d736",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 51,
+      "name": "T: Gelenk zwischen langem Ambossfortsatz und Stapes-Kopf mit feinem Instrument trennen",
+      "color": "#f40f9b",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 52,
+      "name": "T: Amboss nach superior mobilisieren",
+      "color": "#8f24b5",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 53,
+      "name": "T: Hinteres Crus mit Häkchen nach inferior frakturieren",
+      "color": "#0c83bf",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 54,
+      "name": "T: Vorderes Crus frakturieren",
+      "color": "#c3b2cf",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 55,
+      "name": "T: Suprastruktur (Kopf + Crura) en bloc entfernen",
+      "color": "#26c943",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 56,
+      "name": "T: Fußplatte mit Mikrodrill (0,6 mm), Laser (CO₂/KTP) oder manueller Perforator eröﬀnen",
+      "color": "#1b1c46",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 57,
+      "name": "T: Perforation auf 0,6–0,8 mm kalibrieren",
+      "color": "#6a6f33",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 58,
+      "name": "T: Titan, Teflon oder Nitinol-Piston durch Stapedotomie-Öﬀnung in Vestibulum einführen (Insertionstiefe ca. 0,25–0,5 mm)",
+      "color": "#237bd8",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 59,
+      "name": "T: Drahtschlinge/ Clip am langen Ambossfortsatz positionieren",
+      "color": "#b96a43",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 60,
+      "name": "T: Drahtschlinge mit Crimping-Zange am Amboss crimpen",
+      "color": "#47a06d",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 61,
+      "name": "T: Prothesensitz und -länge prüfen",
+      "color": "#606a23",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 62,
+      "name": "T: Freie Beweglichkeit der Prothese testen (Palpation)",
+      "color": "#5938f3",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 63,
+      "name": "T: Ggf. Rundfensterreflex prüfen",
+      "color": "#33ce0c",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 64,
+      "name": "T: Bindegewebe, Fettgewebe oder Gelfoam um Stapediotmie-Öffnung und Prothesenfuß",
+      "color": "#8024a9",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 65,
+      "name": "T: Abdichtung des Vestibulums sicherstellen",
+      "color": "#e48e07",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 66,
+      "name": "T: Tympanomeatalen Lappen in anatomische Position zurücklegen",
+      "color": "#d1dda6",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 67,
+      "name": "T: Anulus in Sulcus reponieren",
+      "color": "#ae1d8f",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 68,
+      "name": "T: Gehörgang mit Gelfoam-Streifen tamponieren",
+      "color": "#ad5b01",
+      "objects": [
+        0
+      ]
+    },
+    {
+      "id": 69,
+      "name": "T: Ohrwickelverband anlegen",
+      "color": "#b241b8",
+      "objects": [
+        0
+      ]
+    }
+  ],
+  "skeletonTypeData": []
+}
