@@ -27,7 +27,7 @@
           outline
           icon="add"
           label="add"
-          @click="handleAdd"
+          @click="isAddDialogOpen = true"
         >
           <q-tooltip>add current range (+)</q-tooltip>
         </q-btn>
@@ -231,6 +231,11 @@
     </template>
   </q-table>
   <ActionThumbnailPreview />
+  <AddActionDialog
+    v-model="isAddDialogOpen"
+    :action-label-data="configurationStore.actionLabelData"
+    @add="handleAddSelected"
+  />
 </template>
 
 <script setup>
@@ -238,6 +243,7 @@ import { useQuasar } from 'quasar'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import ActionThumbnailPreview from '~/components/ActionThumbnailPreview.vue'
+import AddActionDialog from '~/components/AddActionDialog.vue'
 import { sortActionAnnotations } from '~/libs/actionSort.js'
 import { ActionAnnotation } from '~/libs/annotationlib.js'
 import { getDefaultActionLabel } from '~/libs/hierarchyLevels.js'
@@ -306,18 +312,22 @@ const columnList = [
 ]
 
 // header
-const handleAdd = () => {
-  const defaultLabel = getDefaultActionLabel(configurationStore.actionLabelData)
+const addAction = (label) => {
   annotationStore.actionAnnotationList.push(
     new ActionAnnotation(
       utils.index2time(annotationStore.leftCurrentFrame),
       utils.index2time(annotationStore.rightCurrentFrame),
-      defaultLabel.id,
-      defaultLabel.objects[0],
-      defaultLabel.color,
+      label.id,
+      label.objects[0],
+      label.color,
       ''
     )
   )
+}
+const handleAdd = () => addAction(getDefaultActionLabel(configurationStore.actionLabelData))
+const isAddDialogOpen = ref(false)
+const handleAddSelected = (labelId) => {
+  addAction(configurationStore.actionLabelData.find((label) => label.id === labelId))
 }
 const handleAddAdvance = () => {
   handleAdd()
@@ -492,7 +502,7 @@ const handleKeyup = (event) => {
   }
   if (event.code === 'Equal') {
     event.preventDefault()
-    handleAdd()
+    isAddDialogOpen.value = true
   }
 }
 onMounted(() => {

@@ -76,7 +76,7 @@ const shortcuts = [
   },
   {
     keys: ['plus (+)'],
-    description: 'add a new action / video segment'
+    description: 'open the dialog to add a new action / video segment'
   },
   {
     keys: ['delete'],
