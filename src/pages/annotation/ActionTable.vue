@@ -235,6 +235,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import ActionThumbnailPreview from '~/components/ActionThumbnailPreview.vue'
 import { ActionAnnotation } from '~/libs/annotationlib.js'
+import { getDefaultActionLabel } from '~/libs/hierarchyLevels.js'
 import utils from '~/libs/utils.js'
 import { useAnnotationStore } from '~/store/annotation.js'
 import { useConfigurationStore } from '~/store/configuration.js'
@@ -301,13 +302,14 @@ const columnList = [
 
 // header
 const handleAdd = () => {
+  const defaultLabel = getDefaultActionLabel(configurationStore.actionLabelData)
   annotationStore.actionAnnotationList.push(
     new ActionAnnotation(
       utils.index2time(annotationStore.leftCurrentFrame),
       utils.index2time(annotationStore.rightCurrentFrame),
-      configurationStore.actionLabelData[0].id,
-      configurationStore.actionLabelData[0].objects[0],
-      configurationStore.actionLabelData[0].color,
+      defaultLabel.id,
+      defaultLabel.objects[0],
+      defaultLabel.color,
       ''
     )
   )
