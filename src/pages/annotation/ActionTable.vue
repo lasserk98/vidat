@@ -2,8 +2,8 @@
   <q-table
     dense
     flat
-    :rows="annotationStore.actionAnnotationList"
-    row-key="start"
+    :rows="sortedActionList"
+    :row-key="getRowKey"
     :columns="columnList"
     :pagination="{ rowsPerPage: 0 }"
     :filter="actionFilterList"
@@ -99,7 +99,9 @@
         :class="{
           'bg-warning': props.row.end - props.row.start <= 0,
           'bg-green-2': props.row === annotationStore.currentThumbnailAction && !q.dark.isActive,
-          'bg-green-8': props.row === annotationStore.currentThumbnailAction && q.dark.isActive
+          'bg-green-8': props.row === annotationStore.currentThumbnailAction && q.dark.isActive,
+          'bg-amber-2': props.row === movedAction && !q.dark.isActive,
+          'bg-amber-8': props.row === movedAction && q.dark.isActive
         }"
       >
         <q-tooltip
@@ -111,6 +113,7 @@
           <q-input
             style="min-width: 100px"
             v-model.number="props.row.start"
+            @update:model-value="markEdited(props.row)"
             dense
             borderless
             type="number"
@@ -122,6 +125,7 @@
           <q-input
             style="min-width: 100px"
             v-model.number="props.row.end"
+            @update:model-value="markEdited(props.row)"
             dense
             borderless
             type="number"
@@ -231,9 +235,10 @@
 
 <script setup>
 import { useQuasar } from 'quasar'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import ActionThumbnailPreview from '~/components/ActionThumbnailPreview.vue'
+import { sortActionAnnotations } from '~/libs/actionSort.js'
 import { ActionAnnotation } from '~/libs/annotationlib.js'
 import { getDefaultActionLabel } from '~/libs/hierarchyLevels.js'
 import utils from '~/libs/utils.js'
@@ -367,7 +372,50 @@ const actionFilter = (rows, filter) => {
 }
 
 // sort
-annotationStore.currentSortedActionList = annotationStore.actionAnnotationList
+const MOVED_HIGHLIGHT_MS = 1500
+const sortedActionList = computed(() =>
+  sortActionAnnotations(annotationStore.actionAnnotationList, configurationStore.actionLabelData)
+)
+// header sorting (actionSort) overrides this while active, since q-table re-sorts after every change
+watch(
+  sortedActionList,
+  (list) => {
+    annotationStore.currentSortedActionList = list
+  },
+  { immediate: true }
+)
+
+// start-time ties are routine, so rows need a key that doesn't depend on their values
+const rowKeys = new WeakMap()
+let nextRowKey = 0
+const getRowKey = (row) => {
+  if (!rowKeys.has(row)) {
+    rowKeys.set(row, nextRowKey++)
+  }
+  return rowKeys.get(row)
+}
+
+// highlight a row that moved because it was edited (not on add / delete / load)
+const movedAction = ref(null)
+let editedAction = null
+let movedTimeout
+const markEdited = (row) => {
+  editedAction = row
+}
+watch(sortedActionList, (newList, oldList) => {
+  const row = editedAction
+  editedAction = null
+  if (!row || newList.length !== oldList.length || newList.indexOf(row) === oldList.indexOf(row)) {
+    return
+  }
+  movedAction.value = row
+  clearTimeout(movedTimeout)
+  movedTimeout = setTimeout(() => {
+    movedAction.value = null
+  }, MOVED_HIGHLIGHT_MS)
+})
+onUnmounted(() => clearTimeout(movedTimeout))
+
 const actionSort = (rows, sortBy, descending) => {
   const sortedRows = rows.slice().sort((a, b) => {
     const sortVal = a[sortBy] < b[sortBy] ? -1 : 1
@@ -406,6 +454,7 @@ const handleThumbnailPreview = (props) => {
   }
 }
 const handleActionInput = (row) => {
+  markEdited(row)
   row.color = configurationStore.actionLabelData.find((label) => label.id === row.action).color
   row.object = configurationStore.actionLabelData.find((label) => label.id === row.action).objects[0]
 }
@@ -420,6 +469,7 @@ const handleGoto = (row) => {
   }
 }
 const handleSet = (row) => {
+  markEdited(row)
   row.start = utils.index2time(annotationStore.leftCurrentFrame)
   row.end = utils.index2time(annotationStore.rightCurrentFrame)
 }
