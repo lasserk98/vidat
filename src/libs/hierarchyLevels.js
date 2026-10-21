@@ -37,4 +37,14 @@ function hasUnmatchedActionAnnotations(actionAnnotationList, actionLabelData) {
   })
 }
 
-export { HIERARCHY_LEVELS, matchHierarchyLevel, hasUnmatchedActionAnnotations }
+/**
+ * Label a new annotation starts with. Prefers a hierarchy-matching label so adding an annotation
+ * doesn't trip the unmatched-label fallback to the standard timeline.
+ * @param {{id: number, name: string}[]} actionLabelData
+ * @returns {{id: number, name: string} | undefined} first hierarchy-matching label, else the first label
+ */
+function getDefaultActionLabel(actionLabelData) {
+  return actionLabelData.find((label) => matchHierarchyLevel(label.name)) || actionLabelData[0]
+}
+
+export { HIERARCHY_LEVELS, matchHierarchyLevel, hasUnmatchedActionAnnotations, getDefaultActionLabel }
