@@ -3,12 +3,13 @@ import { defineStore } from 'pinia'
 import { computed, reactive, toRefs, watch } from 'vue'
 
 import { ActionAnnotation, ObjectAnnotation, RegionAnnotation, SkeletonAnnotation } from '~/libs/annotationlib.js'
+import frameCache from '~/libs/frameCache.js'
 import utils from '~/libs/utils.js'
 import { useMainStore } from '~/store/index.js'
 import { usePreferenceStore } from '~/store/preference.js'
-import frameCache from '~/libs/frameCache.js'
 
-const CACHE_LIMIT = 800
+// TEMP (test): cache limit disabled to check whether it causes the progress stall at ~8-11%. Original value: 800
+const CACHE_LIMIT = Infinity
 const MEMORY_WARNING_THRESHOLD = 0.8
 const MEMORY_CRITICAL_THRESHOLD = 0.95
 const AGGRESSIVE_EVICT_LIMIT = 100
